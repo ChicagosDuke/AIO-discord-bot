@@ -36,11 +36,12 @@ module.exports = {
   },
 
   DASHBOARD: {
-    enabled: true, // enable or disable dashboard
-    baseURL: "http://localhost:8080", // base url
-    failureURL: "http://localhost:8080", // failure redirect url
-    port: "8080", // port to run the bot on
-  },
+  enabled: true,
+  baseURL: "https://aio-discord-bot-production.up.railway.app",
+  failureURL: "https://aio-discord-bot-production.up.railway.app",
+  port: "8080"
+},
+
 
   ECONOMY: {
     ENABLED: false,
