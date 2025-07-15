@@ -12,7 +12,7 @@ router.get("/login", async function (req, res) {
       req.client.logger.debug("Client is not ready! Redirecting to /login");
       return res.redirect("/login");
     }
-
+    
     return res.redirect(
       `https://discordapp.com/api/oauth2/authorize?client_id=${
         req.client.user.id
@@ -25,6 +25,8 @@ router.get("/login", async function (req, res) {
 });
 
 router.get("/callback", async (req, res) => {
+  console.log("🧭 OAuth2 redirect URI:", `${req.client.config.DASHBOARD.baseURL}/api/callback`);
+
   if (!req.query.code) {
     req.client.logger.debug({ query: req.query, body: req.body });
     req.client.logger.error("Failed to login to dashboard! Check /logs folder for more details");
